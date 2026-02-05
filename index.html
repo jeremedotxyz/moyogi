@@ -1,1 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>moyogi</title>
+<meta name="description" content="moyogi — a human-centered idea greenhouse." />
+<style>
+  :root {
+    --bg: #0f0f0f;
+    --ink: #f2f2f2;
+    --muted: #9a9a9a;
+    --line: #2a2a2a;
 
+    --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.55;
+  }
+
+  .wrap {
+    max-width: 760px;
+    padding: 72px 28px 120px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin: 0 0 12px;
+  }
+
+  .tagline {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--muted);
+    margin-bottom: 48px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 56px 0;
+  }
+
+  h2 {
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    text-transform: lowercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 0 0 16px;
+  }
+
+  ul {
+    padding-left: 18px;
+    margin: 0;
+  }
+
+  li {
+    margin: 8px 0;
+  }
+
+  .quiet {
+    color: var(--muted);
+  }
+
+  .footer {
+    margin-top: 96px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .cursor::after {
+    content: "▌";
+    animation: blink 1s steps(1) infinite;
+    margin-left: 4px;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <h1 class="cursor">moyogi</h1>
+  <div class="tagline">a human-centered idea greenhouse.</div>
+
+  <p><strong>people don’t stall because they lack ideas.</strong><br />
+  they stall because they lack mirrors, scaffolding, and translation.</p>
+
+  <p class="quiet">moyogi exists to provide those three things.</p>
+
+  <hr />
+
+  <h2>what this is</h2>
+
+  <p>a people-powered idea lab where unfinished thoughts are allowed to be unfinished.</p>
+  <p>sometimes the outcome is a startup.</p>
+  <p>sometimes it’s a tool.</p>
+  <p>sometimes it’s clarity.</p>
+  <p class="quiet">all are wins.</p>
+
+  <hr />
+
+  <h2>core values</h2>
+
+  <ul>
+    <li>people over platforms</li>
+    <li>mirrors before money</li>
+    <li>scaffolding, not gatekeeping</li>
+    <li>translation over perfection</li>
+    <li>strengths are shared infrastructure</li>
+    <li>informal growth</li>
+    <li>upright outcomes</li>
+    <li>small, real, human</li>
+  </ul>
+
+  <hr />
+
+  <h2>how it works</h2>
+
+  <p><strong>idea clinic</strong><br />shape fuzzy ideas into something you can hold.</p>
+
+  <p><strong>strength exchange</strong><br />trade skills, not résumés.</p>
+
+  <p><strong>build pods</strong><br />small, temporary teams around a problem.</p>
+
+  <hr />
+
+  <h2>what this is not</h2>
+
+  <ul>
+    <li>not a VC firm</li>
+    <li>not an accelerator</li>
+    <li>not a hustle factory</li>
+    <li>not a content machine</li>
+  </ul>
+
+  <hr />
+
+  <h2>status</h2>
+
+  <p>quietly forming.</p>
+  <p>slow by design.</p>
+
+  <div class="footer">quiet builders change everything.</div>
+
+</div>
+
+</body>
+</html>
