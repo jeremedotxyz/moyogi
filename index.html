@@ -1,48 +1,287 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>moyogi</title>
-<div class="content">
-  <div>moyogi</div>
-  <div>a human-centered idea greenhouse</div>
-<a href="/about.html">about</a>
-  <a href="/about.html">about</a>
-</div>
-<style>
-body{
-  margin:0;
-  background:#0f0f10;
-  color:#f2f2f2;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>moyogi</title>
+  <meta name="description" content="moyogi — a human-centered idea greenhouse for unfinished ideas." />
 
-.wrap{
-  max-width:800px;
-  margin:0 auto;
-  padding:80px 28px;
-}
+  <style>
+    :root{
+      --bg:#0f0f10;
+      --ink:#f2f2f2;
+      --muted:#a7a7a7;
+      --line:rgba(255,255,255,.12);
+      --card:rgba(255,255,255,.04);
 
-.muted{color:#a7a7a7}
-hr{border:none;border-top:1px solid rgba(255,255,255,.15);margin:40px 0}
-</style>
+      --sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      --serif:ui-serif,Georgia,"Times New Roman",Times,serif;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans)}
+    a{color:inherit;text-decoration:none}
+    a:hover{opacity:.85}
+
+    /* layout */
+    .wrap{max-width:1120px;margin:0 auto;padding:28px 22px 96px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand b{font-weight:560;letter-spacing:.02em}
+    .tag{font-size:12px;color:var(--muted);letter-spacing:.16em;text-transform:lowercase}
+    .links{display:flex;gap:14px;font-size:13px;color:var(--muted)}
+    .links a{border-bottom:1px solid transparent}
+    .links a:hover{border-bottom-color:rgba(255,255,255,.22)}
+
+    /* hero */
+    .hero{
+      margin-top:34px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:46px 44px 40px;
+      background:
+        radial-gradient(900px 600px at 20% 20%, rgba(255,255,255,.06), transparent 60%),
+        radial-gradient(900px 600px at 80% 0%, rgba(255,255,255,.04), transparent 55%),
+        rgba(255,255,255,.02);
+      position:relative;
+      overflow:hidden;
+      min-height: 360px;
+    }
+    .hero .kicker{font-size:12px;letter-spacing:.18em;text-transform:lowercase;color:var(--muted);margin-bottom:14px}
+    .hero h1{margin:0 0 14px;font-size:44px;line-height:1.08;font-weight:600;letter-spacing:-.02em;max-width:22ch}
+    .hero .sub{
+      margin:0;
+      font-family:var(--serif);
+      font-size:18px;
+      color:rgba(255,255,255,.72);
+      max-width:58ch;
+    }
+    .ctaRow{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.03);
+      font-size:13px;color:rgba(255,255,255,.86)
+    }
+    .btn.primary{background:rgba(255,255,255,.08)}
+    .btn span{opacity:.7}
+
+    /* subtle “moyogi curve” mark */
+    .mark{
+      position:absolute;right:-120px;top:-110px;width:min(640px, 70vw);
+      opacity:.14;pointer-events:none;filter:drop-shadow(0 18px 60px rgba(0,0,0,.55));
+    }
+
+    /* section styling */
+    .section{margin-top:54px}
+    .section h2{
+      margin:0 0 14px;
+      font-size:13px;letter-spacing:.2em;text-transform:lowercase;color:var(--muted)
+    }
+    .grid{display:grid;gap:14px}
+    .grid.cols3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid.cols2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:900px){.grid.cols3,.grid.cols2{grid-template-columns:1fr}}
+    .card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:var(--card);
+      padding:16px 16px 14px;
+    }
+    .card b{display:block;font-size:13px;letter-spacing:.16em;text-transform:lowercase;margin-bottom:8px}
+    .card p{margin:0;color:rgba(255,255,255,.70);font-size:14px;line-height:1.55}
+    .card .mini{margin-top:10px;color:var(--muted);font-size:13px}
+
+    /* logo wall */
+    .logos{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      background:rgba(255,255,255,.02);
+    }
+    .logoGrid{
+      display:grid;
+      grid-template-columns:repeat(6,minmax(0,1fr));
+      gap:10px;
+    }
+    @media (max-width:900px){.logoGrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    .logo{
+      border:1px dashed rgba(255,255,255,.14);
+      border-radius:12px;
+      padding:14px 10px;
+      color:rgba(255,255,255,.55);
+      text-align:center;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:lowercase;
+    }
+
+    /* image blocks (graphic, no real images needed) */
+    .feature{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width:900px){.feature{grid-template-columns:1fr}}
+    .photo{
+      border-radius:22px;
+      border:1px solid var(--line);
+      min-height:280px;
+      background:
+        radial-gradient(700px 420px at 30% 30%, rgba(255,255,255,.10), transparent 60%),
+        radial-gradient(700px 420px at 80% 10%, rgba(255,255,255,.06), transparent 55%),
+        linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.01));
+      position:relative;
+      overflow:hidden;
+    }
+    .photo::after{
+      content:"";
+      position:absolute;inset:-40px;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0, rgba(255,255,255,.04) 1px, transparent 1px, transparent 18px);
+      opacity:.22;
+      transform:rotate(-6deg);
+      pointer-events:none;
+    }
+    .copy{
+      border-radius:22px;
+      border:1px solid var(--line);
+      padding:18px 18px 16px;
+      background:rgba(255,255,255,.02);
+    }
+    .copy h3{margin:0 0 10px;font-size:22px;letter-spacing:-.01em}
+    .copy p{margin:0 0 12px;color:rgba(255,255,255,.72);line-height:1.6}
+    .copy .link{display:inline-block;margin-top:8px;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.22)}
+
+    footer{
+      margin-top:72px;
+      padding-top:22px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      font-size:13px;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <b>moyogi</b>
+        <span class="tag">quiet builders change everything.</span>
+      </div>
+      <div class="links">
+        <a href="/about.html">about</a>
+        <a href="#how">how it works</a>
+        <a href="#contact">contact</a>
+      </div>
+    </div>
 
-<div class="wrap">
-  <p class="muted">quiet builders change everything.</p>
-  <h1>moyogi</h1>
-  <p class="muted">a human-centered idea greenhouse.</p>
+    <section class="hero">
+      <svg class="mark" viewBox="0 0 700 520" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M88 452c90-42 121-104 126-172 6-88 48-158 130-186 94-33 177 9 210 70 24 45 26 92 11 134-16 47-54 82-104 100-44 16-82 17-122 10"
+              stroke="rgba(255,255,255,.9)" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M400 396c-26 18-60 30-104 36-64 9-132-7-188-56"
+              stroke="rgba(255,255,255,.55)" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
 
-  <hr>
+      <div class="kicker">a human-centered idea greenhouse</div>
+      <h1>mirrors, scaffolding, and translation for unfinished ideas.</h1>
+      <p class="sub">people don’t stall because they lack ideas. they stall because they lack mirrors, scaffolding, and translation.</p>
 
-  <p><strong>people don’t stall because they lack ideas.</strong><br>
-  they stall because they lack mirrors, scaffolding, and translation.</p>
+      <div class="ctaRow">
+        <a class="btn primary" href="/about.html"><span>→</span> read the idea</a>
+        <a class="btn" href="#how"><span>→</span> how it works</a>
+      </div>
+    </section>
 
-  <p class="muted">moyogi exists to provide those three things.</p>
-</div>
+    <section class="section">
+      <h2>in early, and in for good</h2>
+      <div class="logos">
+        <div class="logoGrid">
+          <div class="logo">future founder</div>
+          <div class="logo">future tool</div>
+          <div class="logo">future lab</div>
+          <div class="logo">future pod</div>
+          <div class="logo">future maker</div>
+          <div class="logo">future friend</div>
+          <div class="logo">future builder</div>
+          <div class="logo">future studio</div>
+          <div class="logo">future clinic</div>
+          <div class="logo">future prototype</div>
+          <div class="logo">future community</div>
+          <div class="logo">future experiment</div>
+        </div>
+      </div>
+      <p style="margin:12px 2px 0;color:rgba(255,255,255,.60);font-size:13px">
+        (replace these placeholders with real logos later — this is just the layout.)
+      </p>
+    </section>
 
+    <section class="section" id="how">
+      <h2>how it works</h2>
+      <div class="grid cols3">
+        <div class="card">
+          <b>mirrors</b>
+          <p>gentle reflection that helps you see what you’re actually holding.</p>
+          <div class="mini">clarity, not judgment.</div>
+        </div>
+        <div class="card">
+          <b>scaffolding</b>
+          <p>just enough structure to keep something standing while it grows.</p>
+          <div class="mini">momentum, not bureaucracy.</div>
+        </div>
+        <div class="card">
+          <b>translation</b>
+          <p>turn fuzzy thoughts into buildable shapes.</p>
+          <div class="mini">from “vibe” to “plan.”</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>relationships come first</h2>
+      <div class="feature">
+        <div class="photo" aria-hidden="true"></div>
+        <div class="copy">
+          <h3>community as infrastructure</h3>
+          <p>moyogi is people helping people grow unfinished things — with shared strengths instead of hierarchy.</p>
+          <p>sometimes the outcome is a startup. sometimes it’s a tool. sometimes it’s personal clarity. all are wins.</p>
+          <a class="link" href="/about.html">about moyogi</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>contact</h2>
+      <div class="grid cols2">
+        <div class="card">
+          <b>start a conversation</b>
+          <p>drop a note with what you’re building and what you’re stuck on.</p>
+          <div class="mini">email: <span class="quiet">you@domain.com</span></div>
+        </div>
+        <div class="card">
+          <b>join a pod</b>
+          <p>small, temporary teams around a problem. slow by design.</p>
+          <div class="mini">status: <span class="quiet">quietly forming</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>quiet builders change everything.</div>
+      <div class="quiet">© <span id="y"></span> moyogi</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
