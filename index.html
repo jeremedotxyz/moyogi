@@ -1,90 +1,43 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>moyogi</title>
-<meta name="description" content="moyogi — a human-centered idea greenhouse." />
+
 <style>
-  :root{
-    --bg:#0f0f10;
-    --ink:#f2f2f2;
-    --muted:#a7a7a7;
-    --line:rgba(255,255,255,.10);
-    --card:rgba(255,255,255,.04);
-    --card2:rgba(255,255,255,.06);
+body{
+  margin:0;
+  background:#0f0f10;
+  color:#f2f2f2;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
 
-    --sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    --serif:ui-serif,Georgia,"Times New Roman",Times,serif;
-  }
+.wrap{
+  max-width:800px;
+  margin:0 auto;
+  padding:80px 28px;
+}
 
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    color:var(--ink);
-    font-family:var(--sans);
-    line-height:1.55;
-    background:
-      radial-gradient(900px 600px at 20% 10%, rgba(255,255,255,.06), transparent 60%),
-      radial-gradient(900px 600px at 80% 0%, rgba(255,255,255,.04), transparent 55%),
-      radial-gradient(900px 600px at 70% 80%, rgba(255,255,255,.05), transparent 60%),
-      var(--bg);
-    overflow-x:hidden;
-  }
+.muted{color:#a7a7a7}
+hr{border:none;border-top:1px solid rgba(255,255,255,.15);margin:40px 0}
+</style>
+</head>
 
-  /* subtle grain */
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:.06;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
-    mix-blend-mode:overlay;
-  }
+<body>
 
-  .wrap{
-    max-width:860px;
-    margin:0 auto;
-    padding:86px 28px 120px;
-    position:relative;
-  }
+<div class="wrap">
+  <p class="muted">quiet builders change everything.</p>
+  <h1>moyogi</h1>
+  <p class="muted">a human-centered idea greenhouse.</p>
 
-  .hero{
-    position:relative;
-    padding:18px 0 34px;
-  }
+  <hr>
 
-  .moyogi-mark{
-    position:absolute;
-    right:-40px;
-    top:-38px;
-    width:min(520px, 70vw);
-    height:auto;
-    opacity:.18;
-    filter:drop-shadow(0 10px 40px rgba(0,0,0,.35));
-  }
+  <p><strong>people don’t stall because they lack ideas.</strong><br>
+  they stall because they lack mirrors, scaffolding, and translation.</p>
 
-  h1{
-    margin:0 0 10px;
-    font-size:30px;
-    font-weight:520;
-    letter-spacing:.01em;
-  }
+  <p class="muted">moyogi exists to provide those three things.</p>
+</div>
 
-  .cursor::after{
-    content:"▌";
-    animation:blink 1s steps(1) infinite;
-    margin-left:4px;
-  }
-  @keyframes blink{50%{opacity:0}}
-
-  .tagline{
-    font-family:var(--serif);
-    font-size:20px;
-    color:var(--muted);
-    margin:0 0 30px;
-    max-width:44ch;
-  }
-
-  .lede{
+</body>
+</html>
