@@ -50,7 +50,6 @@ body{
   max-width:1100px;
   margin:0 auto;
   padding:70px 20px 40px;
-
   display:grid;
   grid-template-columns:1.1fr .9fr;
   gap:28px;
@@ -84,6 +83,7 @@ h1{
 .sub{
   color:var(--muted);
   max-width:520px;
+  margin-bottom:12px;
 }
 
 /* divider */
@@ -126,6 +126,11 @@ h1{
   padding-left:18px;
   color:var(--muted);
 }
+.pillarNote{
+  margin-top:12px;
+  color:var(--muted);
+  max-width:520px;
+}
 
 /* phone */
 .phoneFrame{
@@ -148,8 +153,6 @@ h1{
   display:flex;
   gap:14px;
 }
-
-/* left screen */
 .screenLeft{ flex:1 }
 
 /* rows */
@@ -195,6 +198,43 @@ h1{
     rgba(139,140,246,.3)
   );
 }
+
+/* contrast section */
+.contrast{
+  max-width:1100px;
+  margin:80px auto;
+  padding:0 20px;
+}
+.contrastGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+.contrast h3{
+  font-weight:500;
+}
+.contrast ul{
+  color:var(--muted);
+  padding-left:18px;
+}
+@media (max-width:900px){
+  .contrastGrid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* closing */
+.closing{
+  max-width:720px;
+  margin:80px auto 0;
+  padding:0 20px;
+  font-size:20px;
+  text-align:center;
+}
+.closing.muted{
+  color:var(--muted);
+  font-size:16px;
+}
 </style>
 </head>
 
@@ -212,9 +252,22 @@ h1{
   <div class="heroLeft">
     <div class="eyebrow">mirrors · scaffolding · translation</div>
     <h1>Mirrors, scaffolding,<br>and translation for unfinished ideas.</h1>
+
     <p class="sub">
       A human-first idea lab that reflects what you mean, adds light structure,
       and translates the fuzzy into something buildable.
+    </p>
+
+    <p class="sub">
+      Moyogi exists for the moment right before things click —
+      when you know there’s something there,
+      but the shape hasn’t revealed itself yet.
+    </p>
+
+    <p class="sub">
+      We don’t chase scale.
+      We don’t rush outcomes.
+      We help ideas become legible to the people who carry them.
     </p>
 
     <div class="divider">/ pillars</div>
@@ -223,7 +276,6 @@ h1{
   <div class="phone">
     <div class="phoneFrame">
       <div class="phoneTitle">moyogi</div>
-
       <div class="screen">
         <div class="screenLeft">
           <div class="row">
@@ -239,8 +291,7 @@ h1{
             <div class="value">strong fit</div>
           </div>
         </div>
-
-        <div class="thermoStack" aria-hidden="true">
+        <div class="thermoStack">
           <div class="thermo"><div class="fill" style="height:70%"></div></div>
           <div class="thermo"><div class="fill" style="height:45%"></div></div>
           <div class="thermo"><div class="fill" style="height:85%"></div></div>
@@ -252,6 +303,7 @@ h1{
 </section>
 
 <section class="pillars">
+
   <div class="card">
     <h3>mirrors</h3>
     <ul>
@@ -259,6 +311,11 @@ h1{
       <li>cut noise</li>
       <li>sharpen intent</li>
     </ul>
+    <p class="pillarNote">
+      Most ideas fail from misalignment, not lack of intelligence.
+      Mirrors reduce distortion — between thought and language,
+      between intention and interpretation.
+    </p>
   </div>
 
   <div class="card">
@@ -268,6 +325,11 @@ h1{
       <li>next steps</li>
       <li>momentum</li>
     </ul>
+    <p class="pillarNote">
+      Structure should disappear once momentum returns.
+      We add just enough shape to move forward —
+      never so much that it becomes the work.
+    </p>
   </div>
 
   <div class="card">
@@ -277,8 +339,48 @@ h1{
       <li>shared language</li>
       <li>ship-ready</li>
     </ul>
+    <p class="pillarNote">
+      Translation is where private intuition becomes shared reality.
+      When language clicks, teams move, products ship,
+      and decisions stop wobbling.
+    </p>
+  </div>
+
+</section>
+
+<section class="contrast">
+  <div class="contrastGrid">
+    <div>
+      <h3>What this is</h3>
+      <ul>
+        <li>clarity work</li>
+        <li>idea alignment</li>
+        <li>lightweight systems</li>
+        <li>thinking made visible</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>What this isn’t</h3>
+      <ul>
+        <li>a framework factory</li>
+        <li>consulting theater</li>
+        <li>speed for its own sake</li>
+        <li>ideas finished for you</li>
+      </ul>
+    </div>
   </div>
 </section>
+
+<p class="closing">
+  Unfinished doesn’t mean broken.
+  It means alive.
+</p>
+
+<p class="closing muted">
+  Moyogi helps ideas stand on their own —
+  without rushing them into costumes they’re not ready to wear.
+</p>
 
 </body>
 </html>
