@@ -10,9 +10,13 @@
   --ink:#0b0f1a;
   --muted:#6b7280;
   --bg:#f7f8fc;
-  --card:rgba(255,255,255,.75);
+  --card:rgba(255,255,255,.78);
   --line:rgba(11,15,26,.08);
   --r:18px;
+
+  --c1: 139,140,246;  /* indigo */
+  --c2: 110,231,183;  /* mint */
+  --c3: 249,168,212;  /* pink */
 }
 
 *{box-sizing:border-box}
@@ -21,9 +25,9 @@ body{
   font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
   color:var(--ink);
   background:
-    radial-gradient(600px 400px at 20% 10%, rgba(139,140,246,.18), transparent 60%),
-    radial-gradient(600px 400px at 80% 30%, rgba(110,231,183,.16), transparent 60%),
-    radial-gradient(600px 400px at 50% 90%, rgba(249,168,212,.14), transparent 60%),
+    radial-gradient(700px 420px at 20% 10%, rgba(var(--c1),.18), transparent 60%),
+    radial-gradient(700px 420px at 80% 30%, rgba(var(--c2),.16), transparent 60%),
+    radial-gradient(700px 420px at 50% 90%, rgba(var(--c3),.14), transparent 60%),
     var(--bg);
 }
 
@@ -33,7 +37,7 @@ body{
   top:0;
   z-index:10;
   backdrop-filter: blur(10px);
-  background:rgba(247,248,252,.7);
+  background:rgba(247,248,252,.72);
   border-bottom:1px solid var(--line);
 }
 .navInner{
@@ -103,35 +107,6 @@ h1{
   background:var(--line);
 }
 
-/* pillars */
-.pillars{
-  max-width:1100px;
-  margin:0 auto;
-  padding:0 20px 80px;
-  display:grid;
-  gap:18px;
-}
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:var(--r);
-  padding:18px 20px;
-}
-.card h3{
-  margin:0 0 10px;
-  font-weight:500;
-}
-.card ul{
-  margin:0;
-  padding-left:18px;
-  color:var(--muted);
-}
-.pillarNote{
-  margin-top:12px;
-  color:var(--muted);
-  max-width:520px;
-}
-
 /* phone */
 .phoneFrame{
   background:var(--card);
@@ -194,46 +169,156 @@ h1{
   height:60%;
   background:linear-gradient(
     to top,
-    rgba(139,140,246,.7),
-    rgba(139,140,246,.3)
+    rgba(var(--c1),.70),
+    rgba(var(--c1),.28)
   );
 }
 
-/* contrast section */
-.contrast{
+/* ---------- BUBBLE SECTIONS (bottom content) ---------- */
+.section{
   max-width:1100px;
-  margin:80px auto;
+  margin:0 auto;
   padding:0 20px;
-}
-.contrastGrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-}
-.contrast h3{
-  font-weight:500;
-}
-.contrast ul{
-  color:var(--muted);
-  padding-left:18px;
-}
-@media (max-width:900px){
-  .contrastGrid{
-    grid-template-columns:1fr;
-  }
 }
 
-/* closing */
-.closing{
-  max-width:720px;
-  margin:80px auto 0;
+.bubbleGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  padding:10px 0 50px;
+}
+
+@media (max-width:900px){
+  .bubbleGrid{ grid-template-columns:1fr; }
+}
+
+/* big soft bubble */
+.bubble{
+  position:relative;
+  border-radius:26px;
+  border:1px solid rgba(11,15,26,.08);
+  background: rgba(255,255,255,.70);
+  box-shadow: 0 24px 70px rgba(8,12,26,.10);
+  padding:18px 18px 16px;
+  overflow:hidden;
+}
+
+.bubble::before{
+  content:"";
+  position:absolute; inset:-1px;
+  border-radius:26px;
+  background:
+    radial-gradient(520px 220px at 20% 20%, rgba(var(--c1),.18), transparent 60%),
+    radial-gradient(520px 220px at 80% 65%, rgba(var(--c2),.14), transparent 62%),
+    radial-gradient(520px 220px at 50% 90%, rgba(var(--c3),.12), transparent 65%);
+  opacity:.9;
+  pointer-events:none;
+}
+
+.bubble > *{ position:relative; z-index:1; }
+
+.bubbleHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.bubbleTag{
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size:12px;
+  letter-spacing:.03em;
+  color: rgba(11,15,26,.62);
+  text-transform: lowercase;
+}
+
+.pill{
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size:11px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(11,15,26,.10);
+  background: rgba(255,255,255,.72);
+  color: rgba(11,15,26,.62);
+  white-space:nowrap;
+}
+
+.bubble h3{
+  margin:0 0 8px;
+  font-weight:600;
+  letter-spacing:-.01em;
+  text-transform:lowercase;
+}
+.bubble p{
+  margin:0;
+  color: var(--muted);
+  line-height:1.6;
+  max-width: 68ch;
+}
+
+/* list bubbles inside bubble */
+.miniBubbles{
+  display:grid;
+  gap:10px;
+  margin-top:12px;
+}
+.mini{
+  border-radius:18px;
+  border:1px solid rgba(11,15,26,.08);
+  background: rgba(255,255,255,.66);
+  padding:12px 12px 11px;
+}
+.mini ul{
+  margin:0;
+  padding-left:18px;
+  color: var(--muted);
+  line-height:1.55;
+}
+.mini li{ margin:4px 0; }
+
+/* slim “quote” bubble */
+.quoteBubble{
+  margin: 26px 0 70px;
   padding:0 20px;
-  font-size:20px;
+  max-width:1100px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.quote{
+  position:relative;
+  border-radius:999px;
+  border:1px solid rgba(11,15,26,.08);
+  background: rgba(255,255,255,.62);
+  box-shadow: 0 24px 70px rgba(8,12,26,.10);
+  padding: 18px 20px;
+  overflow:hidden;
   text-align:center;
 }
-.closing.muted{
-  color:var(--muted);
-  font-size:16px;
+.quote::before{
+  content:"";
+  position:absolute; inset:-1px;
+  border-radius:999px;
+  background:
+    radial-gradient(520px 200px at 30% 30%, rgba(var(--c1),.16), transparent 60%),
+    radial-gradient(520px 200px at 75% 70%, rgba(var(--c3),.12), transparent 62%);
+  opacity:.9;
+  pointer-events:none;
+}
+.quote span{
+  position:relative;
+  z-index:1;
+  display:block;
+  font-size:18px;
+  letter-spacing:-.01em;
+}
+.quote small{
+  position:relative;
+  z-index:1;
+  display:block;
+  margin-top:8px;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 </style>
 </head>
@@ -291,7 +376,7 @@ h1{
             <div class="value">strong fit</div>
           </div>
         </div>
-        <div class="thermoStack">
+        <div class="thermoStack" aria-hidden="true">
           <div class="thermo"><div class="fill" style="height:70%"></div></div>
           <div class="thermo"><div class="fill" style="height:45%"></div></div>
           <div class="thermo"><div class="fill" style="height:85%"></div></div>
@@ -302,85 +387,128 @@ h1{
 
 </section>
 
-<section class="pillars">
+<!-- bottom content wrapped into aesthetic bubbles -->
+<section class="section">
+  <div class="bubbleGrid">
 
-  <div class="card">
-    <h3>mirrors</h3>
-    <ul>
-      <li>reflect meaning</li>
-      <li>cut noise</li>
-      <li>sharpen intent</li>
-    </ul>
-    <p class="pillarNote">
-      Most ideas fail from misalignment, not lack of intelligence.
-      Mirrors reduce distortion — between thought and language,
-      between intention and interpretation.
-    </p>
+    <!-- Mirrors bubble -->
+    <article class="bubble">
+      <div class="bubbleHead">
+        <div class="bubbleTag">01 / mirrors</div>
+        <div class="pill">signal: clarified</div>
+      </div>
+      <h3>mirrors</h3>
+      <p>
+        Most ideas fail from misalignment, not lack of intelligence.
+        Mirrors reduce distortion — between thought and language,
+        between intention and interpretation.
+      </p>
+
+      <div class="miniBubbles">
+        <div class="mini">
+          <ul>
+            <li>reflect meaning</li>
+            <li>cut noise</li>
+            <li>sharpen intent</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Scaffolding bubble -->
+    <article class="bubble">
+      <div class="bubbleHead">
+        <div class="bubbleTag">02 / scaffolding</div>
+        <div class="pill">signal: stabilized</div>
+      </div>
+      <h3>scaffolding</h3>
+      <p>
+        Structure should disappear once momentum returns.
+        We add just enough shape to move forward —
+        never so much that it becomes the work.
+      </p>
+
+      <div class="miniBubbles">
+        <div class="mini">
+          <ul>
+            <li>light structure</li>
+            <li>next steps</li>
+            <li>momentum</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Translation bubble -->
+    <article class="bubble">
+      <div class="bubbleHead">
+        <div class="bubbleTag">03 / translation</div>
+        <div class="pill">signal: shippable</div>
+      </div>
+      <h3>translation</h3>
+      <p>
+        Translation is where private intuition becomes shared reality.
+        When language clicks, teams move, products ship,
+        and decisions stop wobbling.
+      </p>
+
+      <div class="miniBubbles">
+        <div class="mini">
+          <ul>
+            <li>fuzzy → buildable</li>
+            <li>shared language</li>
+            <li>ship-ready</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- What this is / isn’t bubble -->
+    <article class="bubble">
+      <div class="bubbleHead">
+        <div class="bubbleTag">context</div>
+        <div class="pill">calm clarity</div>
+      </div>
+      <h3>what this is / what this isn’t</h3>
+
+      <div class="miniBubbles">
+        <div class="mini">
+          <div class="bubbleTag" style="margin-bottom:8px;">what this is</div>
+          <ul>
+            <li>clarity work</li>
+            <li>idea alignment</li>
+            <li>lightweight systems</li>
+            <li>thinking made visible</li>
+          </ul>
+        </div>
+
+        <div class="mini">
+          <div class="bubbleTag" style="margin-bottom:8px;">what this isn’t</div>
+          <ul>
+            <li>a framework factory</li>
+            <li>consulting theater</li>
+            <li>speed for its own sake</li>
+            <li>ideas finished for you</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
   </div>
-
-  <div class="card">
-    <h3>scaffolding</h3>
-    <ul>
-      <li>light structure</li>
-      <li>next steps</li>
-      <li>momentum</li>
-    </ul>
-    <p class="pillarNote">
-      Structure should disappear once momentum returns.
-      We add just enough shape to move forward —
-      never so much that it becomes the work.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>translation</h3>
-    <ul>
-      <li>fuzzy → buildable</li>
-      <li>shared language</li>
-      <li>ship-ready</li>
-    </ul>
-    <p class="pillarNote">
-      Translation is where private intuition becomes shared reality.
-      When language clicks, teams move, products ship,
-      and decisions stop wobbling.
-    </p>
-  </div>
-
 </section>
 
-<section class="contrast">
-  <div class="contrastGrid">
-    <div>
-      <h3>What this is</h3>
-      <ul>
-        <li>clarity work</li>
-        <li>idea alignment</li>
-        <li>lightweight systems</li>
-        <li>thinking made visible</li>
-      </ul>
-    </div>
+<!-- closing quote bubble -->
+<section class="quoteBubble">
+  <div class="quote">
+    <span>Unfinished doesn’t mean broken. It means alive.</span>
+    <small>moyogi</small>
+  </div>
 
-    <div>
-      <h3>What this isn’t</h3>
-      <ul>
-        <li>a framework factory</li>
-        <li>consulting theater</li>
-        <li>speed for its own sake</li>
-        <li>ideas finished for you</li>
-      </ul>
-    </div>
+  <div class="quote" style="margin-top:14px;">
+    <span>Moyogi helps ideas stand on their own — without rushing them into costumes they’re not ready to wear.</span>
+    <small>quiet builders change everything</small>
   </div>
 </section>
-
-<p class="closing">
-  Unfinished doesn’t mean broken.
-  It means alive.
-</p>
-
-<p class="closing muted">
-  Moyogi helps ideas stand on their own —
-  without rushing them into costumes they’re not ready to wear.
-</p>
 
 </body>
 </html>
