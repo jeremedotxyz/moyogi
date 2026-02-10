@@ -13,9 +13,6 @@
   --card:rgba(255,255,255,.75);
   --line:rgba(11,15,26,.08);
   --r:18px;
-  --accent1:#8b8cf6;
-  --accent2:#6ee7b7;
-  --accent3:#f9a8d4;
 }
 
 *{box-sizing:border-box}
@@ -32,15 +29,19 @@ body{
 
 /* nav */
 .nav{
-  position:sticky; top:0; z-index:10;
+  position:sticky;
+  top:0;
+  z-index:10;
   backdrop-filter: blur(10px);
   background:rgba(247,248,252,.7);
   border-bottom:1px solid var(--line);
 }
 .navInner{
-  max-width:1100px; margin:auto;
+  max-width:1100px;
+  margin:auto;
   padding:14px 20px;
-  display:flex; justify-content:space-between;
+  display:flex;
+  justify-content:space-between;
   font-weight:500;
 }
 
@@ -51,7 +52,7 @@ body{
   padding:70px 20px 40px;
 
   display:grid;
-  grid-template-columns: 1.1fr .9fr;
+  grid-template-columns:1.1fr .9fr;
   gap:28px;
   align-items:center;
   grid-template-areas:"left phone";
@@ -68,7 +69,7 @@ body{
   }
 }
 
-/* left copy */
+/* copy */
 .eyebrow{
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   color:var(--muted);
@@ -76,7 +77,7 @@ body{
   margin-bottom:8px;
 }
 h1{
-  font-size: clamp(32px, 5vw, 54px);
+  font-size:clamp(32px,5vw,54px);
   line-height:1.05;
   margin:0 0 14px;
 }
@@ -84,33 +85,22 @@ h1{
   color:var(--muted);
   max-width:520px;
 }
-.ctaRow{
-  margin-top:22px;
-  display:flex; gap:12px;
-}
-.btn{
-  padding:12px 18px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:white;
-  font-weight:500;
-}
-.btn.primary{
-  background:var(--ink);
-  color:white;
-  border-color:transparent;
-}
 
 /* divider */
 .divider{
   margin:60px 0 24px;
-  display:flex; align-items:center;
+  display:flex;
+  align-items:center;
   gap:14px;
   color:var(--muted);
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
-.divider:before,.divider:after{
-  content:""; flex:1; height:1px; background:var(--line);
+.divider:before,
+.divider:after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:var(--line);
 }
 
 /* pillars */
@@ -132,22 +122,18 @@ h1{
   font-weight:500;
 }
 .card ul{
-  margin:0; padding-left:18px;
+  margin:0;
+  padding-left:18px;
   color:var(--muted);
 }
 
-/* phone UI */
-.phone{
-  perspective:1200px;
-}
+/* phone */
 .phoneFrame{
   background:var(--card);
   border:1px solid var(--line);
   border-radius:24px;
   padding:14px;
   box-shadow:0 30px 80px rgba(0,0,0,.12);
-  transform-style:preserve-3d;
-  transition:transform .3s ease;
 }
 .phoneTitle{
   text-align:center;
@@ -163,7 +149,7 @@ h1{
   gap:14px;
 }
 
-/* left side of screen */
+/* left screen */
 .screenLeft{ flex:1 }
 
 /* rows */
@@ -183,7 +169,7 @@ h1{
   font-weight:600;
 }
 
-/* thermometer stack */
+/* thermometers */
 .thermoStack{
   width:40px;
   display:flex;
@@ -199,25 +185,15 @@ h1{
 }
 .fill{
   position:absolute;
-  bottom:0; left:0; right:0;
+  bottom:0;
+  left:0;
+  right:0;
   height:60%;
-  background:linear-gradient(to top, rgba(139,140,246,.7), rgba(139,140,246,.3));
-}
-
-/* status line */
-.status{
-  margin-top:10px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size:12px;
-  color:var(--muted);
-}
-
-/* footer */
-.footer{
-  text-align:center;
-  padding:40px 20px;
-  color:var(--muted);
-  border-top:1px solid var(--line);
+  background:linear-gradient(
+    to top,
+    rgba(139,140,246,.7),
+    rgba(139,140,246,.3)
+  );
 }
 </style>
 </head>
@@ -231,7 +207,7 @@ h1{
   </div>
 </nav>
 
-<section class="hero" id="top">
+<section class="hero">
 
   <div class="heroLeft">
     <div class="eyebrow">mirrors · scaffolding · translation</div>
@@ -241,16 +217,11 @@ h1{
       and translates the fuzzy into something buildable.
     </p>
 
-    <div class="ctaRow">
-      <button class="btn primary">enter the lab</button>
-      <button class="btn">how it works</button>
-    </div>
-
     <div class="divider">/ pillars</div>
   </div>
 
   <div class="phone">
-    <div class="phoneFrame" id="phoneFrame">
+    <div class="phoneFrame">
       <div class="phoneTitle">moyogi</div>
 
       <div class="screen">
@@ -267,10 +238,9 @@ h1{
             <div class="label">signal</div>
             <div class="value">strong fit</div>
           </div>
-          <div class="status" id="status">signal: clarified</div>
         </div>
 
-        <div class="thermoStack">
+        <div class="thermoStack" aria-hidden="true">
           <div class="thermo"><div class="fill" style="height:70%"></div></div>
           <div class="thermo"><div class="fill" style="height:45%"></div></div>
           <div class="thermo"><div class="fill" style="height:85%"></div></div>
@@ -282,8 +252,7 @@ h1{
 </section>
 
 <section class="pillars">
-
-  <div class="card" data-status="clarified">
+  <div class="card">
     <h3>mirrors</h3>
     <ul>
       <li>reflect meaning</li>
@@ -292,7 +261,7 @@ h1{
     </ul>
   </div>
 
-  <div class="card" data-status="stabilized">
+  <div class="card">
     <h3>scaffolding</h3>
     <ul>
       <li>light structure</li>
@@ -301,7 +270,7 @@ h1{
     </ul>
   </div>
 
-  <div class="card" data-status="shippable">
+  <div class="card">
     <h3>translation</h3>
     <ul>
       <li>fuzzy → buildable</li>
@@ -309,30 +278,7 @@ h1{
       <li>ship-ready</li>
     </ul>
   </div>
-
 </section>
-
-<footer class="footer">
-  hello@moyogi.xyz · book a session
-</footer>
-
-<script>
-const phone = document.getElementById("phoneFrame");
-const status = document.getElementById("status");
-const cards = document.querySelectorAll(".card");
-
-window.addEventListener("scroll", () => {
-  const y = window.scrollY;
-  phone.style.transform = `rotateY(${y * 0.01}deg) rotateX(${y * -0.005}deg)`;
-
-  cards.forEach(card=>{
-    const rect = card.getBoundingClientRect();
-    if(rect.top < window.innerHeight/2 && rect.bottom > window.innerHeight/2){
-      status.textContent = "signal: " + card.dataset.status;
-    }
-  });
-});
-</script>
 
 </body>
 </html>
