@@ -13,9 +13,9 @@
   --card:rgba(255,255,255,.78);
   --line:rgba(11,15,26,.08);
 
-  --c1: 139,140,246;  /* indigo */
-  --c2: 110,231,183;  /* mint */
-  --c3: 249,168,212;  /* pink */
+  --c1: 139,140,246;
+  --c2: 110,231,183;
+  --c3: 249,168,212;
 }
 
 *{box-sizing:border-box}
@@ -31,7 +31,6 @@ body{
   overflow-x:hidden;
 }
 
-/* subtle floating background blobs */
 .blob{
   position:fixed;
   inset:auto;
@@ -53,7 +52,6 @@ body{
   50%{ transform: translate3d(20px,-18px,0) scale(1.04); }
 }
 
-/* nav */
 .nav{
   position:sticky;
   top:0;
@@ -71,7 +69,6 @@ body{
   font-weight:500;
 }
 
-/* hero */
 .hero{
   max-width:1100px;
   margin:0 auto;
@@ -94,7 +91,6 @@ body{
   }
 }
 
-/* copy */
 .eyebrow{
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   color:rgba(11,15,26,.62);
@@ -114,7 +110,6 @@ h1{
   line-height:1.6;
 }
 
-/* divider */
 .divider{
   margin:60px 0 24px;
   display:flex;
@@ -131,7 +126,6 @@ h1{
   background:var(--line);
 }
 
-/* ---------- phone / window ---------- */
 .phone{
   perspective:1100px;
 }
@@ -147,7 +141,6 @@ h1{
   overflow:hidden;
 }
 
-/* shimmer overlay */
 .phoneFrame::before{
   content:"";
   position:absolute; inset:-2px;
@@ -211,7 +204,6 @@ h1{
 }
 .windowSpacer{ width:40px; }
 
-/* screen */
 .screen{
   position:relative;
   z-index:1;
@@ -224,7 +216,6 @@ h1{
 }
 .screenLeft{ flex:1 }
 
-/* rows */
 .row{
   position:relative;
   border:1px solid rgba(11,15,26,.08);
@@ -266,7 +257,6 @@ h1{
   text-transform: lowercase;
 }
 
-/* thermometers */
 .thermoStack{
   width:44px;
   display:flex;
@@ -301,7 +291,6 @@ h1{
   50%{ filter:saturate(1.06); transform: translateY(-1px); }
 }
 
-/* ---------- bottom bubble sections ---------- */
 .section{
   max-width:1100px;
   margin:0 auto;
@@ -326,8 +315,6 @@ h1{
   box-shadow: 0 26px 80px rgba(8,12,26,.10);
   padding:18px 18px 16px;
   overflow:hidden;
-
-  /* reveal animation base state */
   opacity:0;
   transform: translateY(14px) scale(.99);
   transition: opacity .6s ease, transform .6s ease;
@@ -409,7 +396,6 @@ h1{
   max-width: 68ch;
 }
 
-/* mini bubbles inside */
 .miniBubbles{
   display:grid;
   gap:10px;
@@ -431,7 +417,6 @@ h1{
 }
 .mini li{ margin:4px 0; }
 
-/* closing quote bubbles */
 .quoteBubble{
   padding:0 20px;
   max-width:1100px;
@@ -446,7 +431,6 @@ h1{
   padding: 18px 20px;
   overflow:hidden;
   text-align:center;
-
   opacity:0;
   transform: translateY(14px);
   transition: opacity .6s ease, transform .6s ease;
@@ -509,12 +493,12 @@ h1{
     </p>
     <p class="sub">
       Moyogi exists for the moment right before things click —
-      when you know there’s something there,
-      but the shape hasn’t revealed itself yet.
+      when you know there's something there,
+      but the shape hasn't revealed itself yet.
     </p>
     <p class="sub">
-      We don’t chase scale.
-      We don’t rush outcomes.
+      We don't chase scale.
+      We don't rush outcomes.
       We help ideas become legible to the people who carry them.
     </p>
 
@@ -559,7 +543,6 @@ h1{
   </div>
 </section>
 
-<!-- bottom content in aesthetic bubbles -->
 <section class="section">
   <div class="bubbleGrid">
 
@@ -634,7 +617,7 @@ h1{
         <div class="bubbleTag">context</div>
         <div class="pill">calm clarity</div>
       </div>
-      <h3>what this is / what this isn’t</h3>
+      <h3>what this is / what this isn't</h3>
 
       <div class="miniBubbles">
         <div class="mini">
@@ -648,7 +631,7 @@ h1{
         </div>
 
         <div class="mini">
-          <div class="bubbleTag" style="margin-bottom:8px;">what this isn’t</div>
+          <div class="bubbleTag" style="margin-bottom:8px;">what this isn't</div>
           <ul>
             <li>a framework factory</li>
             <li>consulting theater</li>
@@ -664,18 +647,12 @@ h1{
 
 <section class="quoteBubble">
   <div class="quote reveal">
-    <span>Unfinished doesn’t mean broken. It means alive.</span>
-    <small>moyogi</small>
-  </div>
-
-  <div class="quote reveal" style="margin-top:14px;">
-    <span>Moyogi helps ideas stand on their own — without rushing them into costumes they’re not ready to wear.</span>
+    <span>Moyogi helps ideas stand on their own — without rushing them into costumes they're not ready to wear.</span>
     <small>quiet builders change everything</small>
   </div>
 </section>
 
 <script>
-/* 1) Subtle phone tilt based on mouse + gentle scroll */
 (function(){
   const phone = document.getElementById('phoneFrame');
   if(!phone) return;
@@ -709,7 +686,6 @@ h1{
   }, { passive:true });
 })();
 
-/* 2) Reveal bubbles on scroll (IntersectionObserver) */
 (function(){
   const els = document.querySelectorAll('.reveal');
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
